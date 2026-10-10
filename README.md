@@ -1,4 +1,4 @@
-# Dining Concierge — Cloud Computing Fall 2026, Assignment 1
+# Dining Concierge Bot - Cloud Computing Fall 2026, Assignment 1
 
 Serverless restaurant chatbot. A static site on S3 talks to API Gateway, which calls Lex through Lambda. When the diner finishes, the bot queues the request. A worker runs every minute, picks restaurants from OpenSearch and DynamoDB, and emails them with SES.
 
@@ -67,17 +67,3 @@ Confirm in the console that domain `dining-restaurants` is deleting. Also confir
 - OpenSearch 2.x has no Elasticsearch mapping types. Documents in the `restaurants` index carry `RestaurantID`, `Cuisine`, and `type: Restaurant`, which is the Restaurant record the assignment describes.
 - Suggestions are filtered by cuisine only.
 - The Yelp script requests 200 restaurants for each of 7 cuisines in Manhattan and drops duplicate business ids. Each DynamoDB item includes BusinessID, Name, Address, Coordinates, NumberOfReviews, Rating, ZipCode, Cuisine, and insertedAtTimestamp.
-
-## Demo video
-
-Record this yourself. The video has to start on your NYU Albert profile with your username visible.
-
-1. Albert profile.
-2. The S3 chat: hello, a restaurant request, an invalid city, then Manhattan, a cuisine, party size, date, time, and email.
-3. The SES email that arrives.
-4. The resources: S3 bucket, API Gateway, LF0, Lex bot and its three intents, LF1, queue Q1, LF2, the one-minute EventBridge rule, `yelp-restaurants`, `user-last-search`, the OpenSearch domain and `restaurants` index, and the verified SES identity.
-5. Say that resources will be deleted after the demo, then run teardown if you are done.
-
-## Current AWS credentials
-
-The credentials in this environment (`riddhi-user1` in account `251246747541`) can call STS, but they are denied for Lambda, API Gateway, Lex, DynamoDB, SES, EventBridge, OpenSearch, and IAM. Deploy from a principal that has the course permissions. Do not commit `.env` or `.deploy-state.json`.
