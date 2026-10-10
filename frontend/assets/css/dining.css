@@ -1,0 +1,41 @@
+.chat {
+  height: 420px;
+  max-height: 420px;
+  background: #f4f4f4;
+  border-radius: 8px;
+}
+
+.messages {
+  overflow-y: auto;
+  background: #fff;
+}
+
+.messages .messages-content {
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+.message-box {
+  position: relative;
+  flex: 0 1 52px;
+}
+
+.message-box .message-input {
+  width: calc(100% - 72px);
+  padding-right: 8px;
+}
+
+.masthead-brand {
+  letter-spacing: 0.01em;
+}
+
+.cover-heading {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.lead-note {
+  margin-bottom: 16px;
+  color: #333;
+}
